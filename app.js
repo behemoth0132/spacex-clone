@@ -25,6 +25,18 @@ app.get('/', (req, res) => {
     res.json({ message: 'SEI 412 Space X Clone'});
 });
 
+app.get('/roadster', (req, res) => {
+    const fetchRoadsters = async () => {
+        Roadster.find({}, (err, roadsters) => {
+            if (err)console.log(err);
+            console.log(roadsters)
+        });
+    }
+    
+    fetchRoadsters();
+})
+
+
 app.listen(PORT, () => {
     console.log(`You are now listening to the smooth sounds of ${PORT} 🎧`);
 });
